@@ -1,0 +1,1488 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #e2e8f0;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0, 119, 255, 0.25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(124, 58, 237, 0.22),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(6, 182, 212, 0.15),
+            transparent 30%
+        ),
+        #020617;
+}
+
+
+/* =========================================
+   GRAPHICAL BACKGROUND
+========================================= */
+
+.animated-background {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.animated-background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(2, 6, 23, 0.08),
+            rgba(2, 6, 23, 0.38)
+        );
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   AURORA
+========================================= */
+
+.aurora {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.55;
+}
+
+.aurora-1 {
+    width: 500px;
+    height: 500px;
+
+    left: -150px;
+    top: -120px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 119, 255, 0.85),
+            transparent 70%
+        );
+
+    animation:
+        auroraBlue 12s ease-in-out infinite;
+}
+
+.aurora-2 {
+    width: 550px;
+    height: 550px;
+
+    right: -180px;
+    top: 15%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.7),
+            transparent 70%
+        );
+
+    animation:
+        auroraPurple 15s ease-in-out infinite;
+}
+
+.aurora-3 {
+    width: 500px;
+    height: 500px;
+
+    left: 35%;
+    bottom: -250px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(6, 182, 212, 0.65),
+            transparent 70%
+        );
+
+    animation:
+        auroraCyan 18s ease-in-out infinite;
+}
+
+
+/* =========================================
+   AURORA ANIMATION
+========================================= */
+
+@keyframes auroraBlue {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(220px, 120px) scale(1.35);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes auroraPurple {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-180px, 100px) scale(1.3);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes auroraCyan {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(160px, -130px) scale(1.3);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+
+/* =========================================
+   TECHNOLOGY GRID
+========================================= */
+
+.tech-grid {
+    position: absolute;
+
+    width: 150%;
+    height: 150%;
+
+    left: -25%;
+    top: -10%;
+
+    opacity: 0.42;
+
+    background-image:
+        linear-gradient(
+            rgba(59, 130, 246, 0.15) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(59, 130, 246, 0.15) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    transform:
+        perspective(500px)
+        rotateX(55deg)
+        scale(1.4);
+
+    transform-origin: center bottom;
+
+    animation:
+        gridMove 12s linear infinite;
+}
+
+@keyframes gridMove {
+
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 55px;
+    }
+}
+
+
+/* =========================================
+   LIGHT SCANNER
+========================================= */
+
+.animated-background::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    top: 10%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(0, 183, 255, 0.9),
+            rgba(139, 92, 246, 0.9),
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(0, 183, 255, 0.8);
+
+    opacity: 0.6;
+
+    animation:
+        scannerMove 7s linear infinite;
+
+    z-index: 6;
+}
+
+@keyframes scannerMove {
+
+    0% {
+        top: 10%;
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    80% {
+        opacity: 0.7;
+    }
+
+    100% {
+        top: 90%;
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   CIRCUIT LINES
+========================================= */
+
+.circuit {
+    position: absolute;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(0, 183, 255, 0.9),
+            transparent
+        );
+
+    box-shadow:
+        0 0 10px
+        rgba(0, 183, 255, 0.8);
+
+    opacity: 0.6;
+}
+
+.circuit-1 {
+    width: 500px;
+    top: 28%;
+    left: -100px;
+
+    transform: rotate(18deg);
+
+    animation:
+        circuitMove1 8s ease-in-out infinite;
+}
+
+.circuit-2 {
+    width: 600px;
+    top: 65%;
+    right: -180px;
+
+    transform: rotate(-22deg);
+
+    animation:
+        circuitMove2 10s ease-in-out infinite;
+}
+
+.circuit-3 {
+    width: 450px;
+    top: 82%;
+    left: 15%;
+
+    transform: rotate(-8deg);
+
+    animation:
+        circuitMove3 9s ease-in-out infinite;
+}
+
+@keyframes circuitMove1 {
+
+    0%,
+    100% {
+        transform:
+            translateX(0)
+            rotate(18deg);
+
+        opacity: 0.2;
+    }
+
+    50% {
+        transform:
+            translateX(250px)
+            rotate(18deg);
+
+        opacity: 0.8;
+    }
+}
+
+@keyframes circuitMove2 {
+
+    0%,
+    100% {
+        transform:
+            translateX(0)
+            rotate(-22deg);
+
+        opacity: 0.2;
+    }
+
+    50% {
+        transform:
+            translateX(-250px)
+            rotate(-22deg);
+
+        opacity: 0.8;
+    }
+}
+
+@keyframes circuitMove3 {
+
+    0%,
+    100% {
+        transform:
+            translateX(0)
+            rotate(-8deg);
+
+        opacity: 0.15;
+    }
+
+    50% {
+        transform:
+            translateX(200px)
+            rotate(-8deg);
+
+        opacity: 0.7;
+    }
+}
+
+
+/* =========================================
+   PARTICLES
+========================================= */
+
+.particles {
+    position: absolute;
+    inset: 0;
+}
+
+.particles span {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: #38bdf8;
+
+    box-shadow:
+        0 0 5px #38bdf8,
+        0 0 15px #0ea5e9,
+        0 0 25px #2563eb;
+
+    bottom: -20px;
+
+    animation:
+        particleFloat
+        linear infinite;
+}
+
+
+/* =========================================
+   PARTICLE POSITIONS
+========================================= */
+
+.particles span:nth-child(1) {
+    left: 4%;
+    animation-duration: 11s;
+    animation-delay: 1s;
+}
+
+.particles span:nth-child(2) {
+    left: 9%;
+    animation-duration: 15s;
+    animation-delay: 3s;
+}
+
+.particles span:nth-child(3) {
+    left: 15%;
+    animation-duration: 12s;
+    animation-delay: 5s;
+}
+
+.particles span:nth-child(4) {
+    left: 21%;
+    animation-duration: 18s;
+    animation-delay: 2s;
+}
+
+.particles span:nth-child(5) {
+    left: 27%;
+    animation-duration: 14s;
+    animation-delay: 7s;
+}
+
+.particles span:nth-child(6) {
+    left: 33%;
+    animation-duration: 20s;
+    animation-delay: 4s;
+}
+
+.particles span:nth-child(7) {
+    left: 40%;
+    animation-duration: 13s;
+    animation-delay: 8s;
+}
+
+.particles span:nth-child(8) {
+    left: 46%;
+    animation-duration: 17s;
+    animation-delay: 2s;
+}
+
+.particles span:nth-child(9) {
+    left: 52%;
+    animation-duration: 12s;
+    animation-delay: 6s;
+}
+
+.particles span:nth-child(10) {
+    left: 58%;
+    animation-duration: 19s;
+    animation-delay: 3s;
+}
+
+.particles span:nth-child(11) {
+    left: 64%;
+    animation-duration: 14s;
+    animation-delay: 9s;
+}
+
+.particles span:nth-child(12) {
+    left: 70%;
+    animation-duration: 16s;
+    animation-delay: 1s;
+}
+
+.particles span:nth-child(13) {
+    left: 76%;
+    animation-duration: 13s;
+    animation-delay: 5s;
+}
+
+.particles span:nth-child(14) {
+    left: 82%;
+    animation-duration: 18s;
+    animation-delay: 7s;
+}
+
+.particles span:nth-child(15) {
+    left: 88%;
+    animation-duration: 15s;
+    animation-delay: 4s;
+}
+
+.particles span:nth-child(16) {
+    left: 93%;
+    animation-duration: 21s;
+    animation-delay: 2s;
+}
+
+.particles span:nth-child(17) {
+    left: 18%;
+    animation-duration: 19s;
+    animation-delay: 10s;
+}
+
+.particles span:nth-child(18) {
+    left: 48%;
+    animation-duration: 16s;
+    animation-delay: 11s;
+}
+
+.particles span:nth-child(19) {
+    left: 68%;
+    animation-duration: 20s;
+    animation-delay: 5s;
+}
+
+.particles span:nth-child(20) {
+    left: 96%;
+    animation-duration: 14s;
+    animation-delay: 8s;
+}
+
+
+@keyframes particleFloat {
+
+    0% {
+        transform:
+            translateY(0)
+            translateX(0)
+            scale(0);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+
+        transform:
+            translateY(-10vh)
+            translateX(20px)
+            scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+
+        transform:
+            translateY(-50vh)
+            translateX(-30px)
+            scale(1.4);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateY(-110vh)
+            translateX(50px)
+            scale(0.5);
+    }
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.container {
+    position: relative;
+
+    z-index: 10;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding:
+        20px 25px 25px;
+}
+
+
+/* =========================================
+   CENTERED TITLE
+========================================= */
+
+.header {
+    position: relative;
+
+    width: 100vw;
+
+    margin-left:
+        calc(50% - 50vw);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    color: #f8fafc;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 0 10px
+        rgba(96, 165, 250, 0.35),
+
+        0 0 25px
+        rgba(37, 99, 235, 0.15);
+}
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 21px;
+
+    background:
+        rgba(15, 23, 42, 0.80);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    border:
+        1px solid
+        rgba(96, 165, 250, 0.20);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 40px
+        rgba(0, 0, 0, 0.30);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.stat-card:hover {
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 15px 45px
+        rgba(37, 99, 235, 0.28);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(37, 99, 235, 0.15);
+
+    border-radius: 12px;
+
+    font-size: 23px;
+}
+
+.stat-title {
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+.stat-number {
+    font-size: 27px;
+
+    font-weight: 700;
+
+    color: #f8fafc;
+}
+
+
+/* =========================================
+   FORM BOX
+========================================= */
+
+.form-box {
+    background:
+        rgba(15, 23, 42, 0.82);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    padding: 28px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid
+        rgba(96, 165, 250, 0.22);
+
+    box-shadow:
+        0 15px 50px
+        rgba(0, 0, 0, 0.30);
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   SECTION TITLE
+========================================= */
+
+.section-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 25px;
+}
+
+.section-icon {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    border-radius: 12px;
+
+    font-size: 20px;
+}
+
+.section-title h2 {
+    color: #f8fafc;
+
+    font-size: 20px;
+}
+
+.section-title p {
+    color: #64748b;
+
+    font-size: 12px;
+
+    margin-top: 3px;
+}
+
+
+/* =========================================
+   FORM GRID
+========================================= */
+
+#serviceForm {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.input-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.input-group label {
+    color: #fefefe;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   INPUTS AND SELECTS
+========================================= */
+
+input,
+select {
+    width: 100%;
+
+    padding:
+        13px 14px;
+
+    border:
+        1px solid
+        rgba(148, 163, 184, 0.20);
+
+    border-radius: 10px;
+
+    /*
+       Dark input background
+       with clear white text
+    */
+    background:
+        rgba(2, 6, 23, 0.75);
+
+    color: #f8fafc;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s,
+        box-shadow 0.25s,
+        background 0.25s;
+}
+
+
+/* =========================================
+   PLACEHOLDER
+========================================= */
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* =========================================
+   DROPDOWN OPTIONS
+========================================= */
+
+select option {
+    background: #0f172a;
+
+    color: #f8fafc;
+}
+
+
+/* =========================================
+   FOCUS
+========================================= */
+
+input:focus,
+select:focus {
+    border-color: #3b82f6;
+
+    background:
+        rgba(2, 6, 23, 0.90);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(59, 130, 246, 0.12),
+
+        0 0 18px
+        rgba(37, 99, 235, 0.18);
+}
+
+
+/* =========================================
+   ENABLED INPUTS AND SELECTS
+========================================= */
+
+input:not(:disabled),
+select:not(:disabled) {
+    opacity: 1;
+
+    color: #f8fafc;
+}
+
+
+/* =========================================
+   DISABLED CONTROL
+========================================= */
+
+input:disabled,
+select:disabled {
+    opacity: 0.55;
+
+    cursor: not-allowed;
+}
+
+
+/*
+   Vehicle Model is intentionally disabled
+   until a Vehicle Brand is selected.
+*/
+#vehicle_model:disabled {
+    background:
+        rgba(71, 85, 105, 0.65);
+
+    color: #cbd5e1;
+}
+
+
+/* =========================================
+   DATE INPUT
+========================================= */
+
+input[type="date"] {
+    color-scheme: dark;
+
+    cursor: pointer;
+
+    color: #f8fafc;
+
+    opacity: 1;
+}
+
+input[type="date"]:not(:disabled) {
+    color: #f8fafc;
+
+    opacity: 1;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 1;
+
+    visibility: visible;
+
+    display: block;
+
+    cursor: pointer;
+
+    filter: invert(1);
+
+    width: 18px;
+
+    height: 18px;
+
+    padding: 2px;
+}
+
+input[type="date"]::-webkit-datetime-edit {
+    color: #f8fafc;
+}
+
+input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    color: #f8fafc;
+}
+
+input[type="date"]::-webkit-datetime-edit-text {
+    color: #94a3b8;
+}
+
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+    color: #f8fafc;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    filter:
+        invert(1)
+        drop-shadow(
+            0 0 5px #38bdf8
+        );
+}
+
+
+/* =========================================
+   FORM BUTTONS
+   EXACT CENTER OF FORM
+========================================= */
+
+.form-buttons {
+
+    grid-column: 1 / -1;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 100%;
+
+    gap: 10px;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================
+   GENERAL BUTTON
+========================================= */
+
+button {
+    border: none;
+
+    border-radius: 9px;
+
+    padding:
+        12px 19px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s,
+        background 0.25s;
+}
+
+
+/* =========================================
+   ADD SERVICE BUTTON
+========================================= */
+
+.form-buttons .add-btn {
+
+    display: block;
+
+    min-width: 150px;
+
+    padding:
+        13px 25px;
+
+    margin: 0;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    box-shadow:
+        0 6px 20px
+        rgba(37, 99, 235, 0.30);
+}
+
+.form-buttons .add-btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 28px
+        rgba(37, 99, 235, 0.45);
+}
+
+
+/* =========================================
+   UPDATE BUTTON
+========================================= */
+
+.form-buttons .update-btn {
+
+    min-width: 150px;
+
+    padding:
+        13px 25px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #16a34a,
+            #15803d
+        );
+}
+
+.form-buttons .update-btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 28px
+        rgba(22, 163, 74, 0.35);
+}
+
+
+/* =========================================
+   CANCEL BUTTON
+========================================= */
+
+.form-buttons .cancel-btn {
+
+    min-width: 100px;
+
+    color: white;
+
+    background: #475569;
+
+    display: none;
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+#message {
+    text-align: center;
+
+    min-height: 22px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin:
+        12px 0;
+}
+
+
+/* =========================================
+   TABLE
+========================================= */
+
+.table-container {
+    background:
+        rgba(15, 23, 42, 0.82);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(96, 165, 250, 0.22);
+
+    box-shadow:
+        0 15px 50px
+        rgba(0, 0, 0, 0.30);
+}
+
+.table-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding:
+        22px 25px;
+
+    border-bottom:
+        1px solid
+        rgba(148, 163, 184, 0.10);
+}
+
+.table-header h2 {
+    font-size: 19px;
+
+    color: #f8fafc;
+}
+
+.table-header p {
+    color: #64748b;
+
+    font-size: 12px;
+
+    margin-top: 4px;
+}
+
+.record-icon {
+    font-size: 25px;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================
+   TABLE SCROLL
+========================================= */
+
+.table-scroll {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    min-width: 1150px;
+
+    border-collapse: collapse;
+}
+
+thead {
+    background:
+        rgba(2, 6, 23, 0.78);
+}
+
+th {
+    color: #94a3b8;
+
+    padding: 15px;
+
+    text-align: left;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+
+    white-space: nowrap;
+}
+
+td {
+    padding: 15px;
+
+    color: #cbd5e1;
+
+    border-bottom:
+        1px solid
+        rgba(148, 163, 184, 0.08);
+
+    font-size: 13px;
+
+    white-space: nowrap;
+}
+
+tbody tr {
+    transition: 0.2s;
+}
+
+tbody tr:hover {
+    background:
+        rgba(37, 99, 235, 0.10);
+}
+
+
+/* =========================================
+   EDIT BUTTON
+========================================= */
+
+.edit-btn {
+    background:
+        rgba(245, 158, 11, 0.15);
+
+    color: #fbbf24;
+
+    border:
+        1px solid
+        rgba(245, 158, 11, 0.25);
+
+    padding:
+        7px 11px;
+
+    font-size: 11px;
+
+    margin-right: 4px;
+}
+
+.edit-btn:hover {
+    background:
+        rgba(245, 158, 11, 0.25);
+}
+
+
+/* =========================================
+   DELETE BUTTON
+========================================= */
+
+.delete-btn {
+    background:
+        rgba(239, 68, 68, 0.15);
+
+    color: #f87171;
+
+    border:
+        1px solid
+        rgba(239, 68, 68, 0.25);
+
+    padding:
+        7px 11px;
+
+    font-size: 11px;
+}
+
+.delete-btn:hover {
+    background:
+        rgba(239, 68, 68, 0.25);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    color: #475569;
+
+    font-size: 12px;
+}
+
+footer span {
+    margin:
+        0 8px;
+
+    color: #2563eb;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .dashboard {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    #serviceForm {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .form-buttons {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .container {
+        padding:
+            20px 12px 25px;
+    }
+
+    .header {
+        width: 100vw;
+
+        margin-left:
+            calc(50% - 50vw);
+
+        margin-bottom: 25px;
+    }
+
+    .header h1 {
+        font-size: 25px;
+
+        padding:
+            0 15px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    #serviceForm {
+        grid-template-columns: 1fr;
+    }
+
+    .form-box {
+        padding: 20px;
+    }
+
+    .table-header {
+        padding: 18px;
+    }
+
+    .form-buttons {
+        grid-column: 1 / -1;
+
+        justify-content: center;
+
+        width: 100%;
+    }
+
+    .form-buttons .add-btn,
+    .form-buttons .update-btn {
+        min-width: 150px;
+    }
+}

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Vehicle Service Management System
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         GRAPHICAL BACKGROUND
+    ========================================== -->
+
+    <div class="animated-background">
+
+        <div class="aurora aurora-1"></div>
+
+        <div class="aurora aurora-2"></div>
+
+        <div class="aurora aurora-3"></div>
+
+        <div class="tech-grid"></div>
+
+        <div class="circuit circuit-1"></div>
+
+        <div class="circuit circuit-2"></div>
+
+        <div class="circuit circuit-3"></div>
+
+
+        <div class="particles">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         MAIN CONTAINER
+    ========================================== -->
+
+    <div class="container">
+
+
+        <!-- =========================================
+             TITLE
+        ========================================== -->
+
+        <header class="header">
+
+            <h1>
+                Vehicle Service Management System
+            </h1>
+
+        </header>
+
+
+        <!-- =========================================
+             DASHBOARD
+        ========================================== -->
+
+        <div class="dashboard">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📋
+                </div>
+
+                <div>
+
+                    <div class="stat-title">
+                        Total Services
+                    </div>
+
+                    <div
+                        class="stat-number"
+                        id="totalCount"
+                    >
+                        0
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ⏳
+                </div>
+
+                <div>
+
+                    <div class="stat-title">
+                        Pending
+                    </div>
+
+                    <div
+                        class="stat-number"
+                        id="pendingCount"
+                    >
+                        0
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🔧
+                </div>
+
+                <div>
+
+                    <div class="stat-title">
+                        In Progress
+                    </div>
+
+                    <div
+                        class="stat-number"
+                        id="progressCount"
+                    >
+                        0
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ✅
+                </div>
+
+                <div>
+
+                    <div class="stat-title">
+                        Completed
+                    </div>
+
+                    <div
+                        class="stat-number"
+                        id="completedCount"
+                    >
+                        0
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =========================================
+             SERVICE FORM
+        ========================================== -->
+
+        <div class="form-box">
+
+
+            <div class="section-title">
+
+                <div class="section-icon">
+                    🔧
+                </div>
+
+                <div>
+
+                    <h2 id="formTitle">
+                        Add Service Record
+                    </h2>
+
+                    <p>
+                        Enter customer and vehicle service details
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form id="serviceForm">
+
+
+                <!-- NAME -->
+
+                <div class="input-group">
+
+                    <label>
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customer_name"
+                        placeholder="Enter Customer Name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="input-group">
+
+                    <label>
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone_number"
+                        placeholder="Enter 10-digit Phone Number"
+                        maxlength="10"
+                        inputmode="numeric"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <label>
+                        Email ID
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email_id"
+                        placeholder="Enter Email ID"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- VEHICLE NUMBER -->
+
+                <div class="input-group">
+
+                    <label>
+                        Vehicle Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="vehicle_number"
+                        placeholder="KA01AB1234"
+                        maxlength="30"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- BRAND -->
+
+                <div class="input-group">
+
+                    <label>
+                        Vehicle Brand
+                    </label>
+
+                    <select
+                        id="vehicle_brand"
+                        onchange="updateModels()"
+                        required
+                    >
+
+                        <option value="">
+                            Select Vehicle Brand
+                        </option>
+
+                        <option value="Royal Enfield">
+                            Royal Enfield
+                        </option>
+
+                        <option value="Honda">
+                            Honda
+                        </option>
+
+                        <option value="Yamaha">
+                            Yamaha
+                        </option>
+
+                        <option value="TVS">
+                            TVS
+                        </option>
+
+                        <option value="Bajaj">
+                            Bajaj
+                        </option>
+
+                        <option value="Hero">
+                            Hero
+                        </option>
+
+                        <option value="KTM">
+                            KTM
+                        </option>
+
+                        <option value="Suzuki">
+                            Suzuki
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- MODEL -->
+
+                <div class="input-group">
+
+                    <label>
+                        Vehicle Model
+                    </label>
+
+                    <select
+                        id="vehicle_model"
+                        disabled
+                        required
+                    >
+
+                        <option value="">
+                            Select Vehicle Model
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- SERVICE TYPE -->
+
+                <div class="input-group">
+
+                    <label>
+                        Service Type
+                    </label>
+
+                    <select
+                        id="service_type"
+                        required
+                    >
+
+                        <option value="">
+                            Select Service Type
+                        </option>
+
+                        <option value="General Service">
+                            General Service
+                        </option>
+
+                        <option value="Oil Change">
+                            Oil Change
+                        </option>
+
+                        <option value="Engine Service">
+                            Engine Service
+                        </option>
+
+                        <option value="Brake Service">
+                            Brake Service
+                        </option>
+
+                        <option value="Tyre Service">
+                            Tyre Service
+                        </option>
+
+                        <option value="Battery Service">
+                            Battery Service
+                        </option>
+
+                        <option value="Wheel Alignment">
+                            Wheel Alignment
+                        </option>
+
+                        <option value="Wheel Balancing">
+                            Wheel Balancing
+                        </option>
+
+                        <option value="Clutch Service">
+                            Clutch Service
+                        </option>
+
+                        <option value="Full Body Service">
+                            Full Body Service
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- DATE -->
+
+                <div class="input-group">
+
+                    <label>
+                        Service Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="service_date"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="input-group">
+
+                    <label>
+                        Service Status
+                    </label>
+
+                    <select
+                        id="service_status"
+                        required
+                    >
+
+                        <option value="">
+                            Select Status
+                        </option>
+
+                        <option value="Pending">
+                            Pending
+                        </option>
+
+                        <option value="In Progress">
+                            In Progress
+                        </option>
+
+                        <option value="Completed">
+                            Completed
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+
+                <div class="form-buttons">
+
+                    <button
+                        type="submit"
+                        id="submitButton"
+                        class="add-btn"
+                    >
+                        + Add Service
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancelButton"
+                        class="cancel-btn"
+                        onclick="cancelEdit()"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div id="message"></div>
+
+
+        <!-- =========================================
+             SERVICE RECORD TABLE
+        ========================================== -->
+
+        <div class="table-container">
+
+
+            <div class="table-header">
+
+                <div>
+
+                    <h2>
+                        Service Records
+                    </h2>
+
+                    <p>
+                        Manage all vehicle service records
+                    </p>
+
+                </div>
+
+                <div class="record-icon">
+                    📊
+                </div>
+
+            </div>
+
+
+            <div class="table-scroll">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>No.</th>
+
+                            <th>Name</th>
+
+                            <th>Phone</th>
+
+                            <th>Email</th>
+
+                            <th>Vehicle No.</th>
+
+                            <th>Brand</th>
+
+                            <th>Model</th>
+
+                            <th>Service Type</th>
+
+                            <th>Date</th>
+
+                            <th>Status</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="serviceTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            Vehicle Service Management System
+
+            <span>•</span>
+
+            CRUD Application
+
+            <span>•</span>
+
+            by Harish
+
+        </footer>
+
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
